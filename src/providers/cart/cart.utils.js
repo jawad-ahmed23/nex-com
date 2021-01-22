@@ -2,7 +2,6 @@ export const addItemToCart = (cartItems, ItemToAdd) => {
   const existingItem = cartItems.find(
     (cartItem) => cartItem.id === ItemToAdd.id
   );
-  console.log(existingItem);
   if (existingItem) {
     return increaseItemQty(cartItems, existingItem);
   }
@@ -30,4 +29,8 @@ export const decreaseQty = (cartItems, item) => {
   }
 
   return increaseItemQty(cartItems, findCartItem, -1);
+};
+
+export const clearAllItemsFromCart = (cartItems) => {
+  return (cartItems = []);
 };

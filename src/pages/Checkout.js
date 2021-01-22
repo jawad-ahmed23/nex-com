@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 
 import { makeStyles } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -11,6 +11,8 @@ import Typography from "@material-ui/core/Typography";
 import AddressForm from "../components/Checkout/AddressForm";
 import PaymentForm from "../components/Checkout/PaymentForm";
 import Review from "../components/Checkout/Review";
+
+import { CartContext } from "../providers/cart/cart.provider";
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -72,6 +74,7 @@ const paymentFields = {
 };
 
 export default function Checkout() {
+  const { clearItems } = useContext(CartContext);
   const [shippingDetails, setShippingDetails] = useState(userShippingFields);
   const [paymentDetails, setPaymentDetails] = useState(paymentFields);
 
@@ -160,7 +163,14 @@ export default function Checkout() {
                   <Button
                     variant="contained"
                     color="primary"
-                    onClick={handleNext}
+                    onClick={
+                      activeStep === steps.length - 1
+                        ? () => {
+                            clearItems();
+                            handleNext();
+                          }
+                        : handleNext
+                    }
                     className={classes.button}
                   >
                     {activeStep === steps.length - 1 ? "Place order" : "Next"}

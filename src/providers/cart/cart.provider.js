@@ -5,6 +5,7 @@ import {
   decreaseQty,
   deleteItem,
   addItemToCart,
+  clearAllItemsFromCart,
 } from "./cart.utils";
 
 export const CartContext = createContext({
@@ -14,6 +15,7 @@ export const CartContext = createContext({
   getTotalPrice: () => {},
   decreaseQty: () => {},
   deleteItem: () => {},
+  clearItems: () => {},
 });
 
 export default function CartProvider({ children }) {
@@ -30,6 +32,8 @@ export default function CartProvider({ children }) {
     return acc + price * quantity;
   }, 0);
 
+  const clearItems = () => setCartItems(clearAllItemsFromCart(cartItems));
+
   const values = {
     cartItems,
     increItemQty,
@@ -38,6 +42,7 @@ export default function CartProvider({ children }) {
     getTotalCartPrice,
     addItem,
     TotalCartItems,
+    clearItems,
   };
 
   return <CartContext.Provider value={values}>{children}</CartContext.Provider>;

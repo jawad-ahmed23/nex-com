@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
+import Button from "@material-ui/core/Button";
 
 // Context
 import { CartContext } from "../providers/cart/cart.provider";
@@ -38,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Cart() {
-  const { cartItems, getTotalCartPrice } = useContext(CartContext);
+  const { cartItems, getTotalCartPrice, clearItems } = useContext(CartContext);
   const classes = useStyles();
 
   return (
@@ -46,7 +47,14 @@ export default function Cart() {
       {cartItems.length ? (
         <>
           <CartItems />
-
+          <Button
+            className={classes.btn}
+            variant="contained"
+            color="secondary"
+            onClick={clearItems}
+          >
+            Clear All Items
+          </Button>
           <h3 className={classes.totalPriceText}>
             <span
               style={{ color: "#333", fontWeight: "400", marginRight: "20px" }}
@@ -55,6 +63,7 @@ export default function Cart() {
             </span>
             Rs. {getTotalCartPrice}
           </h3>
+
           <div className={classes.btnGroup}>
             <Link
               className={classes.btn}
