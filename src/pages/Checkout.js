@@ -11,7 +11,6 @@ import Typography from "@material-ui/core/Typography";
 import AddressForm from "../components/Checkout/AddressForm";
 import PaymentForm from "../components/Checkout/PaymentForm";
 import Review from "../components/Checkout/Review";
-import { FormControlLabel } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   appBar: {

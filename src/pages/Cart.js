@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { CartContext } from "../providers/cart/cart.provider";
 
 // CartProduct Component
-import { CartItems, OrderSummary } from "../components";
+import { CartItems } from "../components";
 
 import Container from "@material-ui/core/Container";
 
