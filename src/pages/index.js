@@ -1,5 +1,6 @@
-import Home from "./Home";
-import Cart from "./Cart";
-import Checkout from "./Checkout";
+import Home from "./Home/Home.page";
+import Cart from "./Cart/Cart.page";
+import Checkout from "./Checkout/Checkout.page";
+import ProductDetail from "./ProductDetail/ProductDetail.page";
 
-export { Home, Cart, Checkout };
+export { Home, Cart, Checkout, ProductDetail };

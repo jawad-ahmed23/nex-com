@@ -1,41 +1,23 @@
 import React, { useContext } from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import MuiCard from "@material-ui/core/Card";
-import CardActionArea from "@material-ui/core/CardActionArea";
-import CardActions from "@material-ui/core/CardActions";
-import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
-import Button from "@material-ui/core/Button";
-import Typography from "@material-ui/core/Typography";
-import ButtonGroup from "@material-ui/core/ButtonGroup";
+import { Link } from "react-router-dom";
+import {
+  Card as MuiCard,
+  CardActionArea,
+  CardActions,
+  CardContent,
+  CardMedia,
+  Button,
+  Typography,
+  ButtonGroup,
+} from "@material-ui/core";
+import { CartContext } from "../../../providers/cart/cart.provider";
 
-import { CartContext } from "../providers/cart/cart.provider";
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    maxWidth: 345,
-    boxShadow: "0px 0px 0px",
-    borderRadius: 0,
-  },
-  media: {
-    height: 240,
-  },
-  btnGroup: {
-    width: "100%",
-  },
-  btn: {
-    width: "100%",
-    borderRadius: 0,
-  },
-  cardActionsRoot: {
-    padding: "0px",
-  },
-}));
+import useStyles from "./Card.styles";
 
 export default function Card({ product }) {
   const { addItem } = useContext(CartContext);
   const classes = useStyles();
-  const { imageUrl, name, description, price } = product;
+  const { id, imageUrl, name, description, price } = product;
   return (
     <MuiCard className={classes.root}>
       <CardActionArea>
@@ -55,14 +37,17 @@ export default function Card({ product }) {
       </CardActionArea>
       <CardActions className={classes.cardActionsRoot} disableSpacing>
         <ButtonGroup orientation="vertical" className={classes.btnGroup}>
-          <Button
-            className={classes.btn}
-            size="medium"
-            color="primary"
-            variant="outlined"
-          >
-            Rs. {price}
-          </Button>
+          <Link to={`/product/${id}`}>
+            <Button
+              className={classes.btn}
+              size="medium"
+              color="primary"
+              variant="outlined"
+            >
+              Rs. {price}
+            </Button>
+          </Link>
+
           <Button
             className={classes.btn}
             size="medium"

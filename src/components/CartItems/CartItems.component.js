@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import { makeStyles } from "@material-ui/core/styles";
 import {
   Table,
   TableBody,
@@ -10,23 +9,11 @@ import {
   Paper,
 } from "@material-ui/core";
 
-import { CartContext } from "../providers/cart/cart.provider";
+import { CartContext } from "../../providers/cart/cart.provider";
 
-import CartItem from "./CartItem";
+import CartItem from "./CartItem/CartItem.component";
 
-// Custom Styles
-const useStyles = makeStyles((theme) => ({
-  root: {
-    width: "800px",
-    boxShadow: "0px 0px 0px",
-    overflow: "auto",
-    margin: "0 auto",
-    height: "400px",
-  },
-  table: {
-    minwidth: "700px",
-  },
-}));
+import useStyles from "./CartItems.styles";
 
 const tableHeadings = [
   "IMAGE",

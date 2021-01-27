@@ -1,8 +1,21 @@
-import CardList from "./CardList";
-import Carousel from "./Carousel";
-import Navbar from "./Navbar";
-import CartItems from "./CartItems";
-import CartItem from "./CartItem";
-import OrderSummary from "./Checkout/OrderSummary";
+import CardList from "./CardList/CardList.component";
+import Carousel from "./Carousel/Carousel.component";
+import Navbar from "./Navbar/Navbar.component";
+import CartItems from "./CartItems/CartItems.component";
+import CartItem from "./CartItems/CartItem/CartItem.component";
+import Footer from "./Footer/Footer.component";
+import OrderSummary from "./OrderSummary/OrderSummary.component";
+import CheckoutForm from "./Forms/CheckoutForm/CheckoutForm.component";
+import Product from "./Product/Product.component";
 
-export { CardList, Carousel, CartItems, Navbar, CartItem, OrderSummary };
+export {
+  CardList,
+  Carousel,
+  CartItems,
+  Navbar,
+  CartItem,
+  Footer,
+  OrderSummary,
+  CheckoutForm,
+  Product,
+};

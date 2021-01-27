@@ -1,12 +1,6 @@
 import React from "react";
 import MuiCarousel from "react-material-ui-carousel";
-import { makeStyles } from "@material-ui/core/styles";
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    marginTop: theme.spacing(3),
-  },
-}));
+import useStyles from "./Carousel.styles";
 
 const carouselImgUrls = [
   "images/carousel/1.png",
@@ -20,7 +14,6 @@ export default function Carousel() {
   return (
     <>
       <MuiCarousel
-        navButtonsAlwaysVisible
         className={classes.root}
         style={{ width: "100%" }}
         stopAutoPlayOnHover

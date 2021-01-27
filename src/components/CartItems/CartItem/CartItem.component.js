@@ -1,14 +1,19 @@
 import React, { useContext } from "react";
 
 // Context
-import { CartContext } from "../providers/cart/cart.provider";
+import { CartContext } from "../../../providers/cart/cart.provider";
 
-import MuiTableRow from "@material-ui/core/TableRow";
-import TableCell from "@material-ui/core/TableCell";
-import IconButton from "@material-ui/core/IconButton";
-import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
-import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
-import DeleteIcon from "@material-ui/icons/Delete";
+import {
+  IconButton,
+  TableCell,
+  TableRow as MuiTableRow,
+} from "@material-ui/core";
+
+import {
+  ArrowBackIos as ArrowBackIosIcon,
+  ArrowForwardIos as ArrowForwardIosIcon,
+  Delete as DeleteIcon,
+} from "@material-ui/icons";
 
 export default function CartItem({ item }) {
   const { increItemQty, decreaseQuantity, removeItem } = useContext(

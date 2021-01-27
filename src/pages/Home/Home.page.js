@@ -1,6 +1,6 @@
 import React from "react";
-import { CardList } from "../components";
-import { Carousel } from "../components";
+import { CardList } from "../../components";
+import { Carousel } from "../../components";
 
 function Home() {
   return (
